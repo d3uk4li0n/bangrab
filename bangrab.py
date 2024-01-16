@@ -32,5 +32,6 @@ if __name__ == "__main__":
     parser.add_argument("-t", "--target", required=True, help="ip or hostname of the target")
     parser.add_argument("-p", "--port", required=False, help="Select port number (default 80)")
     parser.add_argument("-to", "--timeout", required=False, help="Set timeout (default 10 seconds)")
-    parser.add_argument("-q", "--query", required=False)
+    parser.add_argument("-q", "--query", required=False, help="(Optional) specify query")
+    parser.print_help()
     #print(get_domain_name(argv[1]))
