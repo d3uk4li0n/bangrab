@@ -10,7 +10,10 @@ def get_banner(ip, port=80, timeout=10, query="GET / HTTP/3\r\n\n\n"):
         return
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.settimeout(timeout)
-    s.connect((hname, port))
+    try:
+        s.connect((hname, port))
+    except socket.error as exc:
+        print(f"{Fore.RED} Socket error, could not connect {exc}")
     s.send(query.encode()) ## do we need to .encode('utf-8') it?
     print(s.recv(10000).decode())
     s.close()
