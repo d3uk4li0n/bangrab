@@ -2,6 +2,7 @@
 
 from sys import argv
 import socket
+from colorama import Fore
 
 def get_banner(ip, port=80, timeout=10, query="GET / HTTP/3\r\n\n\n"):
     hname = get_domain_name(ip)
@@ -19,7 +20,7 @@ def get_domain_name(ip):
         hname = socket.gethostbyaddr(ip)[0]
         return hname
     except socket.error:
-        print("Error: could not obtain hostname")
+        print(f"{Fore.RED}Error: could not obtain hostname")
         return ""
 
 if __name__ == "__main__":
