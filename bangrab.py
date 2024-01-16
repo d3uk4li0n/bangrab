@@ -4,7 +4,7 @@ from sys import argv
 import socket
 from colorama import Fore
 
-def get_banner(ip, port=80, timeout=10, query="GET / HTTP/3\r\n\n\n"):
+def get_banner(ip, port=80, timeout=10, query=""): ##GET / HTTP/3\r\n\n\n
     hname = get_domain_name(ip)
     if not hname:
         return
