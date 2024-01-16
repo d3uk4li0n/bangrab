@@ -26,8 +26,8 @@ def get_domain_name(ip):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog="banner grabber", description="Your favorite banner grabber tool in python",
                                      epilog="python3 bangrab.py [port] [timeout] [GET]|[HEAD]")
-    parser.add_argument("ip or hostname", help="ip or hostname of the target")
+    parser.add_argument("-t", "--target", required=True, help="ip or hostname of the target")
     parser.add_argument("-p", "--port", required=False, help="Select port number (default 80)")
-    parser.add_argument("-t", "--timeout", required=False, help="Set timeout (default 10 seconds)")
+    parser.add_argument("-to", "--timeout", required=False, help="Set timeout (default 10 seconds)")
     parser.add_argument("-q", "--query", required=False)
     #print(get_domain_name(argv[1]))
