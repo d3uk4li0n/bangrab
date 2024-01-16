@@ -12,10 +12,15 @@ def get_banner(ip, port=80, timeout=10, query=""): ##GET / HTTP/3\r\n\n\n
     s.settimeout(timeout)
     try:
         s.connect((hname, port))
-    except socket.error as exc:
-        print(f"{Fore.RED} Socket error, could not connect {exc}")
-    s.send(query.encode()) ## do we need to .encode('utf-8') it?
-    print(s.recv(10000).decode())
+    except socket.error as e:
+        print(f"{Fore.RED}Socket error, could not connect {e}")
+    #s.send(query.encode()) ## do we need to .encode('utf-8') it?
+    #if query != "":
+    #    s.send(query.encode()) 
+    try:
+        print(s.recv(1024)) #.decode()
+    except socket.error as e:
+        print(f"{Fore.RED}Socket error: {e}")
     s.close()
 
 def get_domain_name(ip):
